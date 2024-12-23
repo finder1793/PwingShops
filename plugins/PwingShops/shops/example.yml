@@ -1,0 +1,31 @@
+# Shop Settings
+display-name: "Example Shop"
+command: "exampleshop"
+
+# Opening Hours
+schedule:
+  MONDAY:
+    open: "09:00"
+    close: "17:00"
+
+# Shop Items
+items:
+  diamond:
+    slot: 0
+    item:
+      type: DIAMOND
+      amount: 1
+    buy-price: 100.0
+    sell-price: 50.0
+    bulk-discounts:
+      32: 0.10  # 10% off for 32+ items
+      64: 0.15  # 15% off for 64+ items
+    sale:
+      discount: 0.25  # 25% off during sale
+      start: "2024-01-01 00:00"
+      end: "2024-01-07 23:59"
+    stock: 100
+    max-stock: 200
+    stock-regen:
+      amount: 5
+      interval: 300

@@ -1,0 +1,13 @@
+name: PwingShops
+version: ${version}
+main: com.pwing.shops.PwingShops
+api-version: 1.19
+depend: [Vault]
+softdepend: [Skript]
+commands:
+  shop:
+    description: Main shop command
+    usage: /<command>
+  shopadmin:
+    description: Admin shop command
+    usage: /<command>

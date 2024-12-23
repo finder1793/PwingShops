@@ -1,0 +1,36 @@
+title: "&e&lExample Menu"
+size: 54  # 6 rows
+
+items:
+  welcome:
+    slot: 13
+    item: "NETHER_STAR"
+    name: "&b&lWelcome!"
+    lore:
+      - "&7Welcome to the example menu"
+      - "&7Your balance: &e%vault_eco_balance%"
+    actions:
+      - "[sound] ENTITY_EXPERIENCE_ORB_PICKUP 1 1"
+      - "[message] &aWelcome to our shop!"
+  
+  shop_teleport:
+    slot: 22
+    item: "ENDER_PEARL"
+    name: "&a&lTeleport to Shop"
+    lore:
+      - "&7Click to teleport to the shop"
+    actions:
+      - "[sound] ENTITY_ENDERMAN_TELEPORT 1 1"
+      - "[player] spawn shop"
+      - "[message] &aTeleported to shop!"
+
+  special_item:
+    slot: 31
+    item: "itemsadder:special_sword"
+    name: "&d&lSpecial Item"
+    lore:
+      - "&7A special custom item"
+    actions:
+      - "[takemoney] 1000"
+      - "[message] &aPurchased special item!"
+      - "[sound] ENTITY_PLAYER_LEVELUP 1 1"

@@ -1,0 +1,30 @@
+display-name: "&b&lExample Shop"
+command: "exampleshop"
+
+# Shop opening hours
+schedule:
+  MONDAY:
+    open: "09:00"
+    close: "17:00"
+  FRIDAY:
+    open: "00:00"
+    close: "23:59"
+
+items:
+  diamond_sword:
+    slot: 0
+    item: "DIAMOND_SWORD"
+    buy-price: 100
+    sell-price: 50
+    bulk-discounts:
+      32: 0.1  # 10% discount for buying 32
+      64: 0.2  # 20% discount for buying 64
+    sale:
+      discount: 0.15
+      start: "2024-01-01 00:00"
+      end: "2024-12-31 23:59"
+    stock: 100
+    max-stock: 200
+    stock-regen:
+      amount: 5
+      interval: 300  # 5 minutes

@@ -3,7 +3,7 @@ version: ${version}
 main: com.pwing.shops.PwingShops
 api-version: 1.19
 depend: [Vault]
-softdepend: [Skript]
+softdepend: [Skript,PwingEco]
 commands:
   shop:
     description: Main shop command

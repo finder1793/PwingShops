@@ -12,6 +12,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import com.pwing.shops.integration.PwingEcoIntegration;
+
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,11 +26,13 @@ public class ShopMenu implements InventoryHolder {
     private final Inventory inventory;
     private final Map<Integer, Long> lastClick = new HashMap<>();
     private static final long CLICK_COOLDOWN = 100; //100 ms cooldown
-
+    private final PwingEcoIntegration ecoIntegration;
+    
     public ShopMenu(PwingShops plugin, Shop shop) {
         this.plugin = plugin;
         this.shop = shop;
         this.inventory = Bukkit.createInventory(this, 54, shop.getDisplayName());
+        this.ecoIntegration = new PwingEcoIntegration(plugin);
         setupItems();
     }
 
@@ -196,4 +200,15 @@ public class ShopMenu implements InventoryHolder {
             sellItem(player, item, amount);
         }
     }
+
+
+    public boolean handlePurchase(Player player, double cost) {
+        String currency = ecoIntegration.getPrimaryCurrency();
+        if (ecoIntegration.getBalance(player, currency) >= cost) {
+            return ecoIntegration.processPurchase(player, currency, cost);
+        }
+        return false;
+    }
 }
+
+

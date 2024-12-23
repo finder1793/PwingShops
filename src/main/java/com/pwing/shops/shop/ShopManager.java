@@ -38,4 +38,9 @@ public class ShopManager {
     public Map<String, Shop> getShops() {
         return shops;
     }
+    public void reload() {
+        shops.clear();
+        loadShops();
+    }
 }
+

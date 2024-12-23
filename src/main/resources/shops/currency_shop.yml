@@ -1,0 +1,34 @@
+display-name: "&6&lCurrency Shop"
+command: "currencyshop"
+
+currencies:
+  coins:
+    buy-price: 100
+    sell-price: 80
+  gems:
+    buy-price: 10
+    sell-price: 8
+  tokens:
+    buy-price: 5
+    sell-price: 4
+
+items:
+  special_sword:
+    slot: 13
+    item: "DIAMOND_SWORD"
+    name: "&b&lMulti-Currency Sword"
+    lore:
+      - "&7Buy with different currencies:"
+      - "&6• %pwingeco_coins% Coins"
+      - "&b• %pwingeco_gems% Gems"
+      - "&e• %pwingeco_tokens% Tokens"
+    currencies:
+      coins:
+        buy: 500
+        sell: 400
+      gems:
+        buy: 50
+        sell: 40
+      tokens:
+        buy: 25
+        sell: 20

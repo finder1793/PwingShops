@@ -1,0 +1,13 @@
+title: PwingShops Documentation
+description: Documentation for the PwingShops plugin
+theme: just-the-docs
+url: https://finder1793.github.io/PwingShops
+
+aux_links:
+  "PwingShops on GitHub":
+    - "https://github.com/finder1793/PwingShops"
+
+# Theme settings
+color_scheme: dark
+search_enabled: true
+heading_anchors: true

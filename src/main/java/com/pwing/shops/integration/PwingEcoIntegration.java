@@ -19,12 +19,11 @@ public class PwingEcoIntegration {
     public PwingEcoIntegration(PwingShops plugin) {
         this.plugin = plugin;
         this.enabled = false;
-        this.pwingEco = null;
-        this.shopAPI = null;
         
         try {
-            if (plugin.getServer().getPluginManager().getPlugin("PwingEco") != null) {
-                this.pwingEco = (PwingEco) plugin.getServer().getPluginManager().getPlugin("PwingEco");
+            org.bukkit.plugin.Plugin pwingPlugin = plugin.getServer().getPluginManager().getPlugin("PwingEco");
+            if (pwingPlugin != null) {
+                this.pwingEco = (PwingEco) pwingPlugin;
                 this.shopAPI = new ShopIntegrationAPI(this.pwingEco);
                 this.enabled = true;
             }

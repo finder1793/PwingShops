@@ -12,13 +12,12 @@ import java.util.stream.Collectors;
 
 public class PwingEcoIntegration {
     private final PwingShops plugin;
-    private final PwingEco pwingEco;
-    private ShopIntegrationAPI shopAPI;
+    private PwingEco pwingEco = null;
+    private ShopIntegrationAPI shopAPI = null;
     private boolean enabled = false;
 
     public PwingEcoIntegration(PwingShops plugin) {
         this.plugin = plugin;
-        this.enabled = false;
         
         try {
             org.bukkit.plugin.Plugin pwingPlugin = plugin.getServer().getPluginManager().getPlugin("PwingEco");

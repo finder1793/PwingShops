@@ -18,12 +18,15 @@ public class PwingEcoIntegration {
 
     public PwingEcoIntegration(PwingShops plugin) {
         this.plugin = plugin;
-        if (plugin.getServer().getPluginManager().getPlugin("PwingEco") != null) {
-            this.pwingEco = (PwingEco) plugin.getServer().getPluginManager().getPlugin("PwingEco");
-            this.shopAPI = new ShopIntegrationAPI(this.pwingEco);
-            this.enabled = true;
-        } else {
-            this.pwingEco = null;
+        try {
+            if (plugin.getServer().getPluginManager().getPlugin("PwingEco") != null) {
+                this.pwingEco = (PwingEco) plugin.getServer().getPluginManager().getPlugin("PwingEco");
+                this.shopAPI = new ShopIntegrationAPI(this.pwingEco);
+                this.enabled = true;
+            }
+        } catch (NoClassDefFoundError e) {
+            this.enabled = false;
+            plugin.getLogger().info("PwingEco integration not enabled - API not found");
         }
     }
     public boolean processPurchase(Player player, String currency, double amount) {

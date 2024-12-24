@@ -20,8 +20,8 @@ import com.pwing.shops.command.ReloadCommand;
 
 public class PwingShops extends JavaPlugin {
     private Economy economy;
-    private ShopManager shopManager;
     private ShopCommandHandler commandHandler;
+    private ShopManager shopManager;
     private ItemsAdderIntegration itemsAdderIntegration;
     private OraxenIntegration oraxenIntegration;
     private NexoIntegration nexoIntegration;

@@ -8,9 +8,13 @@ import org.bukkit.event.EventHandler;
 
 @TraitName("pwingshop")
 public class CitizensIntegration extends Trait {
-    private final PwingShops plugin;
+    private PwingShops plugin;
     private String shopId;
     private String menuId;
+    
+    public CitizensIntegration() {
+        super("pwingshop");
+    }
     
     public CitizensIntegration(PwingShops plugin) {
         super("pwingshop");
@@ -19,7 +23,7 @@ public class CitizensIntegration extends Trait {
     
     @EventHandler
     public void onRightClick(NPCRightClickEvent event) {
-        if (!event.getNPC().equals(this.getNPC())) return;
+        if (!event.getNPC().equals(getNPC())) return;
         
         if (shopId != null) {
             plugin.getShopManager().getShop(shopId).ifPresent(shop -> 

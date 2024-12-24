@@ -17,6 +17,8 @@ repositories {
     maven("https://repo.skriptlang.org/releases")
     maven("https://repo.oraxen.com/releases/")
     maven("https://repo.nexomc.com/releases/")
+    maven("https://repo.citizensnpcs.co/")
+    maven("https://repo.minebench.de/")
 }
 
 dependencies {
@@ -31,6 +33,7 @@ dependencies {
     implementation("net.kyori:adventure-api:4.14.0")
     implementation("net.kyori:adventure-text-minimessage:4.14.0")
     implementation("net.kyori:adventure-text-serializer-legacy:4.14.0")
+    compileOnly("net.citizensnpcs:citizens-main:2.0.33-SNAPSHOT")
 }
 tasks {
     shadowJar {

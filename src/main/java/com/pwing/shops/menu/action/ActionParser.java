@@ -43,11 +43,10 @@ public class ActionParser {
                 Float.parseFloat(parts[1]), Float.parseFloat(parts[2]));
         });
         
-        actionFactories.put("openmenu", (plugin, content) -> player -> {
-            ConfigurableMenu menu = plugin.getMenuManager().getMenu(content);
-            if (menu != null) {
-                menu.open(player);
-            }
+        actionFactories.put("menu", (plugin, content) -> player -> {
+            ConfigurableMenu menu = plugin.getMenuManager().getMenu(content).orElse(null);
+            if (menu == null) return;
+            menu.open(player);
         });
 
         // Money actions

@@ -8,6 +8,7 @@ import org.bukkit.command.TabCompleter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.pwing.shops.command.NPCCommand;
 
 public class CommandManager implements CommandExecutor, TabCompleter {
     private final Map<String, CommandExecutor> commands = new HashMap<>();
@@ -16,6 +17,7 @@ public class CommandManager implements CommandExecutor, TabCompleter {
     public CommandManager(PwingShops plugin) {
         registerCommand("convert", new ConvertCommand(plugin));
         registerCommand("reload", new ReloadCommand(plugin));
+        registerCommand("npc", new NPCCommand(plugin));
     }
     
     private void registerCommand(String name, CommandExecutor executor) {
@@ -47,3 +49,4 @@ public class CommandManager implements CommandExecutor, TabCompleter {
         return null;
     }
 }
+

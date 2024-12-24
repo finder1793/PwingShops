@@ -5,6 +5,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class MenuManager {
     private final PwingShops plugin;
@@ -28,8 +29,8 @@ public class MenuManager {
         }
     }
     
-    public ConfigurableMenu getMenu(String id) {
-        return menus.get(id);
+    public Optional<ConfigurableMenu> getMenu(String id) {
+        return Optional.ofNullable(menus.get(id));
     }
 
     public void reload() {
@@ -38,3 +39,5 @@ public class MenuManager {
     }
 
 }
+
+

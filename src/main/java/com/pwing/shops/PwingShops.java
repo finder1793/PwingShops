@@ -5,6 +5,9 @@ import com.pwing.shops.command.ShopCommandHandler;
 import com.pwing.shops.shop.ShopManager;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
+import com.pwing.shops.integration.CitizensIntegration;
+import net.citizensnpcs.api.CitizensAPI;
+import net.citizensnpcs.api.trait.TraitInfo;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import com.pwing.shops.command.CommandManager;
@@ -53,9 +56,15 @@ public class PwingShops extends JavaPlugin {
         getCommand("pwingshops").setExecutor(commandManager);
         getCommand("pwingshops").setTabCompleter(commandManager);
         
+        // Register Citizens trait
+        if (getServer().getPluginManager().getPlugin("Citizens") != null) {
+            net.citizensnpcs.api.CitizensAPI.getTraitFactory().registerTrait(
+                net.citizensnpcs.api.trait.TraitInfo.create(CitizensIntegration.class)
+            );
+        }
+        
         getLogger().info("PwingShops has been enabled!");
     }
-
     private boolean setupEconomy() {
         if (getServer().getPluginManager().getPlugin("Vault") == null) {
             return false;

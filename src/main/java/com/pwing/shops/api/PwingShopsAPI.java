@@ -13,7 +13,7 @@ public class PwingShopsAPI {
     }
     
     public static Shop getShop(String id) {
-        return plugin.getShopManager().getShop(id);
+        return plugin.getShopManager().getShop(id).orElse(null);
     }
     
     public static void createShop(String id, String displayName) {

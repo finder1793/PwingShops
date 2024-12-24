@@ -5,6 +5,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class ShopManager {
     private final PwingShops plugin;
@@ -31,8 +32,8 @@ public class ShopManager {
         }
     }
 
-    public Shop getShop(String id) {
-        return shops.get(id);
+    public Optional<Shop> getShop(String id) {
+        return Optional.ofNullable(shops.get(id));
     }
 
     public Map<String, Shop> getShops() {
@@ -43,4 +44,5 @@ public class ShopManager {
         loadShops();
     }
 }
+
 

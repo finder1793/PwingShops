@@ -18,6 +18,10 @@ public class PwingEcoIntegration {
 
     public PwingEcoIntegration(PwingShops plugin) {
         this.plugin = plugin;
+        this.enabled = false;
+        this.pwingEco = null;
+        this.shopAPI = null;
+        
         try {
             if (plugin.getServer().getPluginManager().getPlugin("PwingEco") != null) {
                 this.pwingEco = (PwingEco) plugin.getServer().getPluginManager().getPlugin("PwingEco");
@@ -25,7 +29,6 @@ public class PwingEcoIntegration {
                 this.enabled = true;
             }
         } catch (NoClassDefFoundError e) {
-            this.enabled = false;
             plugin.getLogger().info("PwingEco integration not enabled - API not found");
         }
     }

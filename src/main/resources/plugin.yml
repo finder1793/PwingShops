@@ -8,6 +8,6 @@ commands:
   shop:
     description: Main shop command
     usage: /<command>
-  shopadmin:
-    description: Admin shop command
+  pwingshops:
+    description: Admin shop commands
     usage: /<command>

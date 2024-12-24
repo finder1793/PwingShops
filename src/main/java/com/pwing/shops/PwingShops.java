@@ -28,20 +28,38 @@ public class PwingShops extends JavaPlugin {
     private PwingEcoIntegration pwingEcoIntegration;
     private MenuManager menuManager;
     private Permission permission;
+
     @Override
     public void onEnable() {
+        getLogger().info("Loading PwingShops v" + getDescription().getVersion());
+        
         if (!setupEconomy()) {
             getLogger().severe("Vault not found! Disabling plugin.");
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
+        getLogger().info("✓ Hooked into Vault Economy");
         
+        this.commandHandler = new ShopCommandHandler(this);
         this.itemsAdderIntegration = new ItemsAdderIntegration(this);
         this.oraxenIntegration = new OraxenIntegration(this);
         this.nexoIntegration = new NexoIntegration(this);
         this.pwingEcoIntegration = new PwingEcoIntegration(this);
+        
+        if (getServer().getPluginManager().getPlugin("ItemsAdder") != null) {
+            getLogger().info("✓ Hooked into ItemsAdder");
+        }
+        if (getServer().getPluginManager().getPlugin("Oraxen") != null) {
+            getLogger().info("✓ Hooked into Oraxen");
+        }
+        if (getServer().getPluginManager().getPlugin("Nexo") != null) {
+            getLogger().info("✓ Hooked into Nexo");
+        }
+        if (getServer().getPluginManager().getPlugin("PwingEco") != null) {
+            getLogger().info("✓ Hooked into PwingEco");
+        }
+        
         this.shopManager = new ShopManager(this);
-        this.commandHandler = new ShopCommandHandler(this);
         this.menuManager = new MenuManager(this);
         setupPermissions();
         
@@ -61,10 +79,12 @@ public class PwingShops extends JavaPlugin {
             net.citizensnpcs.api.CitizensAPI.getTraitFactory().registerTrait(
                 net.citizensnpcs.api.trait.TraitInfo.create(CitizensIntegration.class)
             );
+            getLogger().info("✓ Hooked into Citizens");
         }
         
-        getLogger().info("PwingShops has been enabled!");
+        getLogger().info("PwingShops has been enabled successfully!");
     }
+
     private boolean setupEconomy() {
         if (getServer().getPluginManager().getPlugin("Vault") == null) {
             return false;
@@ -95,6 +115,3 @@ public class PwingShops extends JavaPlugin {
     public MenuManager getMenuManager() { return menuManager; }
     public Permission getPermission() { return permission; }
 }
-
-
-
